@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSMDBC – Kumbalathu Sankupillai Memorial Devaswom Board College</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --maroon: #7B1B2B;
+    --maroon-dark: #5a1220;
+    --maroon-light: #a02238;
+    --gold: #C8972A;
+    --gold-light: #e8b84b;
+    --white: #ffffff;
+    --off-white: #f8f5f0;
+    --gray-light: #f2f2f2;
+    --gray: #888;
+    --text: #2c2c2c;
+    --text-light: #555;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--maroon-dark);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    padding: 6px 0;
+    border-bottom: 2px solid var(--gold);
+  }
+  .top-bar .inner {
+    max-width: 1200px; margin: auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .top-bar a { color: rgba(255,255,255,0.85); text-decoration: none; margin-left: 14px; }
+  .top-bar a:hover { color: var(--gold-light); }
+  .top-bar .social a { font-size: 0.82rem; }
+  .top-bar .left span { margin-right: 18px; }
+  .top-bar .left span i { margin-right: 5px; color: var(--gold-light); }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    padding: 16px 24px;
+    border-bottom: 3px solid var(--maroon);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .header-inner {
+    max-width: 1200px; margin: auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 16px; }
+  .logo-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #fefefe;
+  }
+  .logo-icon img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--maroon);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  .logo-text p {
+    font-size: 0.74rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-top: 2px;
+  }
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-admission {
+    background: var(--gold);
+    color: var(--maroon-dark);
+    padding: 9px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-admission:hover { background: var(--gold-light); }
+
+  /* ── NAV ── */
+  nav { background: var(--maroon); }
+  nav .nav-inner {
+    max-width: 1200px; margin: auto;
+    display: flex; align-items: center;
+  }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; }
+  nav ul li { position: relative; }
+  nav ul li a {
+    display: block; padding: 13px 18px;
+    color: rgba(255,255,255,0.9); font-size: 0.84rem;
+    text-decoration: none; font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  nav ul li a:hover, nav ul li a.active {
+    background: var(--gold);
+    color: var(--maroon-dark);
+  }
+  nav ul li .dropdown {
+    display: none;
+    position: absolute; top: 100%; left: 0;
+    background: var(--maroon-dark);
+    min-width: 220px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    z-index: 200;
+  }
+  nav ul li:hover .dropdown { display: block; }
+  nav ul li .dropdown a {
+    padding: 10px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.82rem;
+  }
+
+  /* ── HERO SLIDER ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    opacity: 0; transition: opacity 1s ease;
+    display: flex; align-items: center;
+  }
+  .slide.active { opacity: 1; }
+  .slide-bg {
+    position: absolute; inset: 0;
+  }
+  /* Slide gradient backgrounds simulating college scenes */
+  .slide-1 .slide-bg {
+    background: linear-gradient(135deg, #3a0a14 0%, #7B1B2B 40%, #b34060 80%, #c8972a55 100%);
+  }
+  .slide-2 .slide-bg {
+    background: linear-gradient(135deg, #0a2a3a 0%, #1b4a7B 40%, #2d6fa8 80%, #c8972a55 100%);
+  }
+  .slide-3 .slide-bg {
+    background: linear-gradient(135deg, #1a3a0a 0%, #2c6b1f 40%, #3d8a2a 80%, #c8972a55 100%);
+  }
+  .slide-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.45);
+  }
+  .slide-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: auto; padding: 0 60px;
+    color: var(--white);
+  }
+  .slide-tag {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+  .slide-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 640px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .slide-content p {
+    font-size: 1.05rem;
+    margin-top: 14px;
+    max-width: 520px;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+  .slide-cta {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--gold);
+    color: var(--maroon-dark);
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .slide-cta:hover { background: var(--gold-light); }
+  .slide-dots {
+    position: absolute; bottom: 22px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 10;
+  }
+  .slide-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.4); cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .slide-dots span.active { background: var(--gold); transform: scale(1.3); }
+  .slide-arrows {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 100%; display: flex; justify-content: space-between;
+    padding: 0 16px; z-index: 10; pointer-events: none;
+  }
+  .slide-arrows button {
+    pointer-events: all;
+    background: rgba(123,27,43,0.7);
+    color: white; border: none; cursor: pointer;
+    width: 42px; height: 42px; border-radius: 50%;
+    font-size: 1rem;
+    transition: background 0.2s;
+  }
+  .slide-arrows button:hover { background: var(--maroon); }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--maroon);
+    padding: 0;
+  }
+  .stats-inner {
+    max-width: 1200px; margin: auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    padding: 22px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+  .stat-item .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 64px 24px; }
+  .section-title {
+    text-align: center; margin-bottom: 48px;
+  }
+  .section-title .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--maroon);
+    line-height: 1.25;
+  }
+  .section-title .underline {
+    width: 56px; height: 3px;
+    background: var(--gold);
+    margin: 12px auto 0;
+  }
+  .inner { max-width: 1200px; margin: auto; }
+
+  /* ── ABOUT SECTION ── */
+  .about { background: var(--off-white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about-img {
+    position: relative;
+  }
+  .about-img-main {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-light) 60%, var(--gold) 100%);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .about-img-main i { font-size: 6rem; color: rgba(255,255,255,0.2); }
+  .about-badge {
+    position: absolute; bottom: -18px; right: -18px;
+    background: var(--gold);
+    color: var(--maroon-dark);
+    padding: 20px 24px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .about-badge .yr { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; display: block; }
+  .about-badge small { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .about-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.65rem; color: var(--maroon); margin-bottom: 16px;
+  }
+  .about-text p { font-size: 0.95rem; line-height: 1.75; color: var(--text-light); margin-bottom: 14px; }
+  .about-text .naac-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--maroon);
+    color: white; padding: 10px 18px; border-radius: 4px;
+    font-size: 0.85rem; font-weight: 600; margin-top: 10px;
+    text-decoration: none;
+  }
+  .about-text .naac-badge i { color: var(--gold-light); }
+
+  /* ── HIGHLIGHTS ── */
+  .highlights { background: var(--white); }
+  .highlights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .highlight-card {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 30px 22px;
+    text-align: center;
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .highlight-card:hover {
+    box-shadow: 0 8px 32px rgba(123,27,43,0.12);
+    transform: translateY(-4px);
+    border-color: var(--maroon);
+  }
+  .highlight-card .icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--maroon);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    color: var(--gold-light); font-size: 1.4rem;
+  }
+  .highlight-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--maroon); margin-bottom: 8px;
+  }
+  .highlight-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ── NEWS & EVENTS ── */
+  .news-events { background: var(--off-white); }
+  .news-events-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 40px; }
+
+  .news-list { display: flex; flex-direction: column; gap: 0; }
+  .news-item {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 18px 0; border-bottom: 1px solid #e0d8d0;
+  }
+  .news-item:first-child { padding-top: 0; }
+  .news-date {
+    background: var(--maroon); color: white;
+    text-align: center; padding: 8px 12px;
+    border-radius: 3px; flex-shrink: 0;
+    min-width: 52px;
+  }
+  .news-date .day { font-size: 1.35rem; font-weight: 700; line-height: 1; display: block; }
+  .news-date .mon { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light); }
+  .news-info h5 { font-size: 0.92rem; font-weight: 600; color: var(--maroon); margin-bottom: 4px; line-height: 1.4; }
+  .news-info p { font-size: 0.8rem; color: var(--text-light); }
+
+  .events-panel { background: var(--maroon); border-radius: 4px; overflow: hidden; }
+  .events-header { padding: 18px 22px; background: var(--maroon-dark); }
+  .events-header h4 { color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.05rem; }
+  .event-item {
+    padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: white;
+  }
+  .event-item .ev-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; }
+  .event-item .ev-meta { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+  .event-item .ev-meta i { color: var(--gold-light); margin-right: 4px; }
+
+  /* ── DEPARTMENTS ── */
+  .departments { background: var(--white); }
+  .dept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .dept-card {
+    background: var(--off-white);
+    border-radius: 4px;
+    padding: 22px 18px;
+    border-left: 4px solid var(--maroon);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+  }
+  .dept-card:hover { background: var(--maroon); color: white; border-left-color: var(--gold); }
+  .dept-card i { font-size: 1.3rem; color: var(--maroon); margin-bottom: 10px; display: block; }
+  .dept-card:hover i { color: var(--gold-light); }
+  .dept-card h5 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .dept-card p { font-size: 0.75rem; opacity: 0.7; }
+
+  /* ── GALLERY ── */
+  .gallery { background: var(--off-white); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 200px 200px; gap: 12px; }
+  .g-item {
+    border-radius: 4px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: filter 0.2s;
+    position: relative;
+  }
+  .g-item:hover { filter: brightness(0.8); }
+  .g-item:hover .g-overlay { opacity: 1; }
+  .g-overlay {
+    position: absolute; inset: 0;
+    background: rgba(123,27,43,0.5);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.2s;
+    color: white; font-size: 1.8rem;
+  }
+  .g-item:nth-child(1) { grid-column: span 2; background: linear-gradient(135deg,#7B1B2B,#a0203b); }
+  .g-item:nth-child(2) { background: linear-gradient(135deg,#1b4a7B,#2d6fa8); }
+  .g-item:nth-child(3) { background: linear-gradient(135deg,#2c6b1f,#3d8a2a); }
+  .g-item:nth-child(4) { background: linear-gradient(135deg,#7B5B1B,#a07a2a); }
+  .g-item:nth-child(5) { grid-column: span 2; background: linear-gradient(135deg,#C8972A,#e8b84b); }
+
+  /* ── PRINCIPAL MESSAGE ── */
+  .principal { background: var(--maroon); padding: 60px 24px; }
+  .principal-inner {
+    max-width: 900px; margin: auto;
+    display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center;
+  }
+  .principal-photo {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 4px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.3); font-size: 4rem; margin: auto;
+  }
+  .principal-msg blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; line-height: 1.7; color: rgba(255,255,255,0.9);
+    font-style: italic;
+    position: relative; padding-left: 24px;
+    border-left: 3px solid var(--gold);
+    margin-bottom: 20px;
+  }
+  .principal-msg .name { color: var(--gold-light); font-weight: 600; font-size: 1rem; }
+  .principal-msg .role { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
+
+  /* ── FOOTER ── */
+  footer { background: #1a0508; padding: 56px 24px 0; color: rgba(255,255,255,0.7); }
+  .footer-grid {
+    max-width: 1200px; margin: auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px;
+  }
+  .footer-col h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light); font-size: 1rem; margin-bottom: 18px;
+    padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-col p { font-size: 0.83rem; line-height: 1.75; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.83rem; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-col ul li a::before { content: "›"; margin-right: 6px; color: var(--gold); }
+  .footer-contact li { display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.83rem; }
+  .footer-contact li::before { display: none; }
+  .footer-contact li i { color: var(--gold-light); margin-top: 2px; flex-shrink: 0; }
+  .footer-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .footer-logo .icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #000;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .footer-logo .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .footer-logo h3 { font-family: 'Playfair Display', serif; color: white; font-size: 0.95rem; line-height: 1.3; }
+  .footer-social { display: flex; gap: 10px; margin-top: 18px; }
+  .footer-social a {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .footer-social a:hover { background: var(--gold); color: var(--maroon-dark); }
+  .footer-bottom {
+    max-width: 1200px; margin: 40px auto 0;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: rgba(255,255,255,0.4);
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ── NOTICE TICKER ── */
+  .ticker {
+    background: #fff7e6;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 9px 0;
+    overflow: hidden;
+  }
+  .ticker-inner { display: flex; align-items: center; gap: 0; max-width: 100%; }
+  .ticker-label {
+    background: var(--gold);
+    color: var(--maroon-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  .ticker-scroll {
+    white-space: nowrap;
+    animation: ticker 60s linear infinite;
+    font-size: 0.82rem;
+    color: var(--maroon);
+  }
+  @keyframes ticker {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-200%); }
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: linear-gradient(90deg, var(--maroon-dark), var(--maroon-light));
+    padding: 48px 24px;
+    text-align: center;
+    color: white;
+  }
+  .cta-band h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; margin-bottom: 8px;
+  }
+  .cta-band p { opacity: 0.8; margin-bottom: 24px; font-size: 0.95rem; }
+  .cta-band .btn {
+    display: inline-block; padding: 12px 32px;
+    border-radius: 4px; font-weight: 700;
+    text-decoration: none; margin: 6px;
+    font-size: 0.9rem; letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+  .cta-band .btn:hover { opacity: 0.85; }
+  .btn-gold { background: var(--gold); color: var(--maroon-dark); }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: white; }
+
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 6px; flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--maroon); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE NAV DRAWER ── */
+  @media (max-width: 768px) {
+    /* Top bar: hide contact info, keep only social icons */
+    .top-bar .left { display: none; }
+    .top-bar .inner { justify-content: flex-end; }
+
+    /* Header compact */
+    header { padding: 10px 14px; position: sticky; top: 0; z-index: 200; }
+    .header-inner { gap: 10px; }
+    .logo-icon { width: 44px; height: 44px; font-size: 1.1rem; border-width: 2px; }
+    .logo-text h1 { font-size: 0.78rem; line-height: 1.25; }
+    .logo-text p { display: none; }
+    .btn-admission { font-size: 0; padding: 9px 11px; }
+    .btn-admission i { font-size: 1rem; margin-right: 0 !important; }
+    .hamburger { display: flex; }
+
+    /* Nav becomes a slide-down drawer */
+    nav { position: relative; z-index: 190; }
+    nav .nav-inner { display: block; }
+    nav ul {
+      display: none; flex-direction: column;
+      background: var(--maroon-dark); width: 100%;
+    }
+    nav ul.open { display: flex; }
+    nav ul li a { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    nav ul li .dropdown { position: static; display: none; background: rgba(0,0,0,0.25); box-shadow: none; }
+    nav ul li.open-sub .dropdown { display: block; }
+    nav ul li .dropdown a { padding: 10px 32px; font-size: 0.82rem; }
+  }
+
+  @media (max-width: 900px) {
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .about-grid, .news-events-grid, .principal-inner { grid-template-columns: 1fr; }
+    .highlights-grid, .dept-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    .g-item:nth-child(1) { grid-column: span 1; }
+    .g-item:nth-child(5) { grid-column: span 1; }
+    .slide-content h2 { font-size: 1.8rem; }
+    .hero { height: 380px; }
+    .slide-content { padding: 0 32px; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .highlights-grid, .dept-grid { grid-template-columns: 1fr; }
+    .hero { height: 320px; }
+    .slide-content h2 { font-size: 1.4rem; }
+    .slide-content p { font-size: 0.88rem; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="inner">
+    <div class="left">
+      <span><i class="fas fa-phone"></i>0479 2412371</span>
+      <span><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="09627a646d6b6a496e64686065276a6664">[email&#160;protected]</a></span>
+      <span><i class="fas fa-map-marker-alt"></i>Sasthamcotta, Kollam, Kerala</span>
+    </div>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-icon"><img src="images/logo1.jpg" alt="KSMDBC Logo"></div>
+      <div class="logo-text">
+        <h1>Kumbalathu Sankupillai Memorial Devaswom Board College</h1>
+        <p>Re-accredited with 'A+' Grade by NAAC &nbsp;|&nbsp; Affiliated to University of Kerala</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="https://ksmdbc.ac.in/fyugp-bvoc-admission-2025-26/" class="btn-admission">
+        <i class="fas fa-graduation-cap" style="margin-right:6px"></i> Admission 2025–26
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="https://ksmdbc.ac.in/" class="active">Home</a></li>
+      <li>
+        <a href="#">The College <i class="fas fa-chevron-down" style="font-size:0.6rem;margin-left:4px"></i></a>
+        <div class="dropdown">
+          <a href="https://ksmdbc.ac.in/about-the-college/">About the College</a>
+          <a href="https://ksmdbc.ac.in/vision-mission-motto/">Vision, Mission & Motto</a>
+          <a href="https://ksmdbc.ac.in/management/">Management</a>
+          <a href="https://ksmdbc.ac.in/the-principal/">The Principal</a>
+          <a href="https://ksmdbc.ac.in/teaching-staff/">Faculty</a>
+          <a href="https://ksmdbc.ac.in/alumni/">Alumni</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Departments <i class="fas fa-chevron-down" style="font-size:0.6rem;margin-left:4px"></i></a>
+        <div class="dropdown">
+          <a href="https://ksmdbc.ac.in/department-of-english/">English</a>
+          <a href="https://ksmdbc.ac.in/department-of-physics/">Physics</a>
+          <a href="https://ksmdbc.ac.in/department-of-mathematics/">Mathematics</a>
+          <a href="https://ksmdbc.ac.in/department-of-chemistry-polymer-chemistry/">Chemistry</a>
+          <a href="https://ksmdbc.ac.in/department-of-commerce/">Commerce</a>
+          <a href="https://ksmdbc.ac.in/department-of-economics/">Economics</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Admission <i class="fas fa-chevron-down" style="font-size:0.6rem;margin-left:4px"></i></a>
+        <div class="dropdown">
+          <a href="https://ksmdbc.ac.in/fyugp-bvoc-admission-2025-26/">Admission 2025–26</a>
+          <a href="https://ksmdbc.ac.in/programmes-offered/">Programmes Offered</a>
+          <a href="https://ksmdbc.ac.in/admission-ug/">Seat Matrix (UG)</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Research <i class="fas fa-chevron-down" style="font-size:0.6rem;margin-left:4px"></i></a>
+        <div class="dropdown">
+          <a href="https://ksmdbc.ac.in/research-departments/">Research Departments</a>
+          <a href="https://ksmdbc.ac.in/research-guides/">Research Guides</a>
+          <a href="https://ksmdbc.ac.in/research-policy/">Research Policy</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Facilities <i class="fas fa-chevron-down" style="font-size:0.6rem;margin-left:4px"></i></a>
+        <div class="dropdown">
+          <a href="https://ksmdbc.ac.in/library/">Library</a>
+          <a href="https://ksmdbc.ac.in/laboratories/">Laboratories</a>
+          <a href="https://ksmdbc.ac.in/hostel/">Hostel</a>
+        </div>
+      </li>
+      <li><a href="https://ksmdbc.ac.in/naac/">NAAC</a></li>
+      <li><a href="https://ksmdbc.ac.in/gallery/">Gallery</a></li>
+      <li><a href="https://ksmdbc.ac.in/contact-two/">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- NOTICE TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-label">📢 Notice</div>
+    <div class="ticker-scroll">
+      Admission 2025–26 Open – Apply Now for UG/PG Programmes &nbsp;|&nbsp;
+      NAAC Re-accreditation with 'A+' Grade &nbsp;|&nbsp;
+      FYUGP Admissions under MG University – Last Date Approaching &nbsp;|&nbsp;
+      BODHI National Seminar Series – Registrations Open &nbsp;|&nbsp;
+      Devaswom Board Scholarship Applications – Submit Before Deadline
+    </div>
+  </div>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="hero" style="padding:0">
+  <div class="slide slide-1 active">
+    <div class="slide-bg"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <span class="slide-tag">&#x2605; Excellence in Higher Education Since 1964</span>
+      <h2>Shaping Futures, Building Leaders</h2>
+      <p>KSMDBC — a legacy of academic excellence, holistic development, and community upliftment in the heart of Kerala.</p>
+      <a href="https://ksmdbc.ac.in/about-the-college/" class="slide-cta">Explore the College</a>
+    </div>
+  </div>
+  <div class="slide slide-2">
+    <div class="slide-bg"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <span class="slide-tag">&#x2605; NAAC Re-accredited 'A+' Grade</span>
+      <h2>A Centre of Knowledge & Research</h2>
+      <p>Cutting-edge research programmes, state-of-the-art laboratories, and dedicated research faculty driving innovation.</p>
+      <a href="https://ksmdbc.ac.in/research-departments/" class="slide-cta">Research Centres</a>
+    </div>
+  </div>
+  <div class="slide slide-3">
+    <div class="slide-bg"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <span class="slide-tag">&#x2605; Admissions 2025–26 Now Open</span>
+      <h2>Begin Your Academic Journey</h2>
+      <p>Wide range of UG, PG, and B.Voc programmes across Arts, Science, and Commerce. Apply online today.</p>
+      <a href="https://ksmdbc.ac.in/fyugp-bvoc-admission-2025-26/" class="slide-cta">Apply Now</a>
+    </div>
+  </div>
+  <div class="slide-arrows">
+    <button onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="slide-dots">
+    <span class="active" onclick="goSlide(0)"></span>
+    <span onclick="goSlide(1)"></span>
+    <span onclick="goSlide(2)"></span>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="num">4000+</span>
+      <span class="label">Students Enrolled</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">120+</span>
+      <span class="label">Faculty Members</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">30+</span>
+      <span class="label">Programmes Offered</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">60+</span>
+      <span class="label">Years of Excellence</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section class="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-main">
+          <i class="fas fa-university"></i>
+        </div>
+        <div class="about-badge">
+          <span class="yr">1964</span>
+          <small>Est.</small>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-title" style="text-align:left;margin-bottom:24px">
+          <span class="tag">About the College</span>
+          <h2>A Legacy of Academic Excellence</h2>
+          <div class="underline" style="margin:12px 0 0"></div>
+        </div>
+        <p>Kumbalathu Sankupillai Memorial Devaswom Board College (KSMDBC), established in 1964 at Sasthamcotta in Kollam district, is one of Kerala's premier government-aided arts and science colleges managed by the Travancore Devaswom Board.</p>
+        <p>Named in honour of Kumbalathu Sankupillai, a revered freedom fighter and social reformer, the college is affiliated to the University of Kerala and has been re-accredited with an 'A+' grade by NAAC, reflecting its unwavering commitment to quality education and holistic student development.</p>
+        <a href="https://ksmdbc.ac.in/naac/" class="naac-badge">
+          <i class="fas fa-award"></i> NAAC Re-accredited 'A+' Grade
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <div class="inner">
+    <div class="section-title">
+      <span class="tag">Why Choose KSMDBC</span>
+      <h2>Our Strengths</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-flask"></i></div>
+        <h4>Research & Innovation</h4>
+        <p>Active research centres, funded projects and BODHI National Seminar Series driving academic inquiry.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-book-open"></i></div>
+        <h4>Extensive Library</h4>
+        <p>A well-stocked library with digital resources, e-journals and a comfortable reading environment for students.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <h4>Student Support</h4>
+        <p>NSS, NCC, SSP, ASAP, scholarship programmes and placement cell for comprehensive student welfare.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-laptop"></i></div>
+        <h4>Digital Learning</h4>
+        <p>ICT-enabled classrooms, open online courses, and e-resource channels across all departments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS & EVENTS -->
+<section class="news-events">
+  <div class="inner">
+    <div class="section-title">
+      <span class="tag">Stay Updated</span>
+      <h2>News & Events</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="news-events-grid">
+      <div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-date"><span class="day">15</span><span class="mon">May</span></div>
+            <div class="news-info">
+              <h5>FYUGP Admission 2025–26 – Online Application Now Open</h5>
+              <p>Apply for undergraduate and B.Voc programmes under the new Four-Year Undergraduate Programme framework.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date"><span class="day">08</span><span class="mon">Apr</span></div>
+            <div class="news-info">
+              <h5>BODHI National Seminar Series – Call for Papers</h5>
+              <p>Submit research papers for the annual BODHI National Seminar on interdisciplinary themes.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date"><span class="day">22</span><span class="mon">Mar</span></div>
+            <div class="news-info">
+              <h5>College Annual Day & Cultural Fest 2025 Highlights</h5>
+              <p>Students showcased remarkable talent at the annual college fest with over 40 cultural events.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date"><span class="day">10</span><span class="mon">Mar</span></div>
+            <div class="news-info">
+              <h5>Job Fair 2025 – Leading Companies to Visit Campus</h5>
+              <p>The annual placement drive sees participation from over 30 top employers across sectors.</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date"><span class="day">28</span><span class="mon">Feb</span></div>
+            <div class="news-info">
+              <h5>NSS Special Camp – Community Service at Kundara Panchayat</h5>
+              <p>KSMDBC NSS volunteers completed a 7-day special camp focused on environmental initiatives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="events-panel">
+          <div class="events-header">
+            <h4><i class="fas fa-calendar-alt" style="margin-right:8px;color:var(--gold-light)"></i>Upcoming Events</h4>
+          </div>
+          <div class="event-item">
+            <div class="ev-title">Parent–Teacher Association Meeting</div>
+            <div class="ev-meta"><i class="fas fa-calendar"></i>20 May 2025 &nbsp;|&nbsp; <i class="fas fa-clock"></i>10:00 AM</div>
+          </div>
+          <div class="event-item">
+            <div class="ev-title">SERB Research Project Symposium</div>
+            <div class="ev-meta"><i class="fas fa-calendar"></i>28 May 2025 &nbsp;|&nbsp; <i class="fas fa-clock"></i>9:30 AM</div>
+          </div>
+          <div class="event-item">
+            <div class="ev-title">Orientation Day – New Students 2025</div>
+            <div class="ev-meta"><i class="fas fa-calendar"></i>02 Jun 2025 &nbsp;|&nbsp; <i class="fas fa-clock"></i>9:00 AM</div>
+          </div>
+          <div class="event-item">
+            <div class="ev-title">Inter-Department Sports Meet 2025</div>
+            <div class="ev-meta"><i class="fas fa-calendar"></i>15 Jun 2025 &nbsp;|&nbsp; <i class="fas fa-clock"></i>8:30 AM</div>
+          </div>
+          <div class="event-item">
+            <div class="ev-title">ASAP Skill Development Workshop</div>
+            <div class="ev-meta"><i class="fas fa-calendar"></i>22 Jun 2025 &nbsp;|&nbsp; <i class="fas fa-clock"></i>11:00 AM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="departments">
+  <div class="inner">
+    <div class="section-title">
+      <span class="tag">Academic Offerings</span>
+      <h2>Departments & Programmes</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="dept-grid">
+      <a href="https://ksmdbc.ac.in/department-of-english/" class="dept-card">
+        <i class="fas fa-language"></i>
+        <h5>English</h5><p>B.A. English Language & Literature</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-mathematics/" class="dept-card">
+        <i class="fas fa-calculator"></i>
+        <h5>Mathematics</h5><p>B.Sc. Mathematics, M.Sc.</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-physics/" class="dept-card">
+        <i class="fas fa-atom"></i>
+        <h5>Physics</h5><p>B.Sc. Physics, M.Sc. Physics</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-chemistry-polymer-chemistry/" class="dept-card">
+        <i class="fas fa-vial"></i>
+        <h5>Chemistry</h5><p>B.Sc. Chemistry & Polymer Chemistry</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-commerce/" class="dept-card">
+        <i class="fas fa-chart-line"></i>
+        <h5>Commerce</h5><p>B.Com, M.Com, PGD-GST</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-economics/" class="dept-card">
+        <i class="fas fa-coins"></i>
+        <h5>Economics</h5><p>B.A. Economics, M.A. Economics</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/department-of-zoology/" class="dept-card">
+        <i class="fas fa-dna"></i>
+        <h5>Zoology</h5><p>B.Sc. Zoology</p>
+      </a>
+      <a href="https://ksmdbc.ac.in/b-voc-courses/" class="dept-card">
+        <i class="fas fa-tools"></i>
+        <h5>B.Voc. Programmes</h5><p>Vocational Skill Development Courses</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPAL MESSAGE -->
+<div class="principal">
+  <div class="principal-inner">
+    <div>
+      <div class="principal-photo"><i class="fas fa-user-tie"></i></div>
+    </div>
+    <div class="principal-msg">
+      <div style="color:var(--gold-light);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:12px">From the Principal's Desk</div>
+      <blockquote>
+        "KSMDBC stands as a beacon of inclusive education and community service. We are committed to nurturing not just academically excellent graduates, but responsible citizens equipped with critical thinking, ethical values, and a spirit of service. Our doors are open to every aspiring student of this region."
+      </blockquote>
+      <div class="name">Dr. [Principal's Name]</div>
+      <div class="role">Principal, Kumbalathu Sankupillai Memorial Devaswom Board College</div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="inner">
+    <div class="section-title">
+      <span class="tag">Campus Life</span>
+      <h2>Photo Gallery</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item"><i class="fas fa-university"></i><div class="g-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="g-item"><i class="fas fa-flask"></i><div class="g-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="g-item"><i class="fas fa-book"></i><div class="g-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="g-item"><i class="fas fa-users"></i><div class="g-overlay"><i class="fas fa-search-plus"></i></div></div>
+      <div class="g-item"><i class="fas fa-trophy"></i><div class="g-overlay"><i class="fas fa-search-plus"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h3>Start Your Journey at KSMDBC</h3>
+  <p>Admissions open for 2025–26. Apply online for UG, PG, and B.Voc programmes.</p>
+  <a href="https://ksmdbc.ac.in/fyugp-bvoc-admission-2025-26/" class="btn btn-gold">Apply Now</a>
+  <a href="https://ksmdbc.ac.in/contact-two/" class="btn btn-outline">Contact Us</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="icon"><img src="/mnt/user-data/uploads/logo.png" alt="KSMDBC Logo"></div>
+        <h3>Kumbalathu Sankupillai Memorial Devaswom Board College</h3>
+      </div>
+      <p>A premier institution of higher learning in Kerala, committed to academic excellence, research, and the holistic development of every student since 1964.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="https://ksmdbc.ac.in/about-the-college/">About the College</a></li>
+        <li><a href="https://ksmdbc.ac.in/teaching-staff/">Faculty</a></li>
+        <li><a href="https://ksmdbc.ac.in/programmes-offered/">Programmes</a></li>
+        <li><a href="https://ksmdbc.ac.in/library/">Library</a></li>
+        <li><a href="https://ksmdbc.ac.in/naac/">NAAC</a></li>
+        <li><a href="https://ksmdbc.ac.in/gallery/">Gallery</a></li>
+        <li><a href="https://ksmdbc.ac.in/alumni/">Alumni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Student Services</h4>
+      <ul>
+        <li><a href="https://ksmdbc.ac.in/student-support/scholarships/">Scholarships</a></li>
+        <li><a href="https://ksmdbc.ac.in/student-support/nss/">NSS</a></li>
+        <li><a href="https://ksmdbc.ac.in/student-support/national-service-scheme-ncc/">NCC</a></li>
+        <li><a href="https://ksmdbc.ac.in/student-support/asap-additional-skill-acquisition-programme/">ASAP</a></li>
+        <li><a href="https://ksmdbc.ac.in/student-support/placement-cell/">Placement Cell</a></li>
+        <li><a href="https://ksmdbc.ac.in/grievance-submission/">Grievance</a></li>
+        <li><a href="https://ksmdbc.ac.in/e-grantz/">E-Grantz</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="footer-contact">
+        <li><i class="fas fa-map-marker-alt"></i>Sasthamcotta P.O., Kollam District, Kerala – 690521</li>
+        <li><i class="fas fa-phone"></i>0479 2412371</li>
+        <li><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c475f41484e4f6c4b414d4540024f4341">[email&#160;protected]</a></li>
+        <li><i class="fas fa-globe"></i>www.ksmdbc.ac.in</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 KSMDBC, Sasthamcotta. All rights reserved.</span>
+    <span>Managed by Travancore Devaswom Board | Affiliated to University of Kerala</span>
+  </div>
+</footer>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.slide-dots span');
+
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function changeSlide(dir) { goSlide(current + dir); }
+  setInterval(() => changeSlide(1), 5000);
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navUl = document.querySelector('nav ul');
+  if (hamburger && navUl) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+    });
+  }
+
+  // Mobile sub-menu toggle on tap
+  document.querySelectorAll('nav ul li').forEach(li => {
+    const dropdown = li.querySelector('.dropdown');
+    if (!dropdown) return;
+    li.querySelector('a').addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        li.classList.toggle('open-sub');
+      }
+    });
+  });
+</script>
+</body>
+</html>
